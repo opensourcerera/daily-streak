@@ -1,1 +1,25 @@
+<svg width="900" height="220" viewBox="0 0 900 220" preserveAspectRatio="xMidYMid meet" style="max-width:900px;width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub streak stats">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="220" rx="18" fill="url(#bg)"/>
+  <text x="450" y="32" text-anchor="middle" font-family="Segoe UI, Ubuntu, sans-serif" font-size="20" fill="#58a6ff">fadhilakbarc • Daily-Streaks</text>
 
+  <line x1="300" y1="55" x2="300" y2="195" stroke="#30363d"/>
+  <line x1="600" y1="55" x2="600" y2="195" stroke="#30363d"/>
+
+  <text x="150" y="98" text-anchor="middle" font-family="Segoe UI, Ubuntu, sans-serif" font-weight="700" font-size="52" fill="#c9d1d9">13</text>
+  <text x="150" y="135" text-anchor="middle" font-family="Segoe UI, Ubuntu, sans-serif" font-size="28" fill="#8b949e">Total Daily Contributions</text>
+
+  <text x="450" y="88" text-anchor="middle" font-family="Segoe UI Emoji, Segoe UI Symbol" font-size="34" fill="#ffa657">🔥</text>
+  <text x="450" y="118" text-anchor="middle" font-family="Segoe UI, Ubuntu, sans-serif" font-weight="700" font-size="54" fill="#ffa657">2</text>
+  <text x="450" y="154" text-anchor="middle" font-family="Segoe UI, Ubuntu, sans-serif" font-size="30" fill="#ffa657">Current Streak (days)</text>
+  <text x="450" y="184" text-anchor="middle" font-family="Segoe UI, Ubuntu, sans-serif" font-size="21" fill="#8b949e">Feb 20 - Feb 21, 2026</text>
+
+  <text x="750" y="98" text-anchor="middle" font-family="Segoe UI, Ubuntu, sans-serif" font-weight="700" font-size="52" fill="#c9d1d9">2</text>
+  <text x="750" y="135" text-anchor="middle" font-family="Segoe UI, Ubuntu, sans-serif" font-size="28" fill="#8b949e">Longest Streak (days)</text>
+  <text x="750" y="170" text-anchor="middle" font-family="Segoe UI, Ubuntu, sans-serif" font-size="21" fill="#8b949e">Feb 20 - Feb 21, 2026</text>
+</svg>
