@@ -1,0 +1,22 @@
+[
+  {
+    "type": "PushEvent",
+    "created_at": "2026-01-10T10:00:00Z",
+    "payload": {"commits": [{"sha": "a1"}, {"sha": "a2"}]}
+  },
+  {
+    "type": "PushEvent",
+    "created_at": "2026-01-11T09:00:00Z",
+    "payload": {"commits": [{"sha": "a3"}]}
+  },
+  {
+    "type": "PushEvent",
+    "created_at": "2026-01-13T14:00:00Z",
+    "payload": {"commits": [{"sha": "a4"}, {"sha": "a5"}, {"sha": "a6"}]}
+  },
+  {
+    "type": "IssueCommentEvent",
+    "created_at": "2026-01-13T16:00:00Z",
+    "payload": {}
+  }
+]
