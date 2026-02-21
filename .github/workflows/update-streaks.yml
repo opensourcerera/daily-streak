@@ -1,0 +1,64 @@
+name: Update Daily Streak Card
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main, work]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-streaks-update
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate streak SVG
+        env:
+          STREAK_USERNAME: ${{ vars.STREAK_USERNAME }}
+          STREAK_TIMEZONE_OFFSET: ${{ vars.STREAK_TIMEZONE_OFFSET }}
+          STREAK_MAX_PAGES: ${{ vars.STREAK_MAX_PAGES }}
+          STREAK_LOOKBACK_DAYS: ${{ vars.STREAK_LOOKBACK_DAYS }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Stop early when username variable is missing.
+          if [ -z "$STREAK_USERNAME" ]; then
+            echo "Missing repository variable: STREAK_USERNAME"
+            exit 1
+          fi
+
+          # Generate fresh SVG from historical + recent activity.
+          python3 src/dailystreaks.py \
+            --username "$STREAK_USERNAME" \
+            --timezone-offset "${STREAK_TIMEZONE_OFFSET:-0}" \
+            --max-pages "${STREAK_MAX_PAGES:-5}" \
+            --lookback-days "${STREAK_LOOKBACK_DAYS:-45}" \
+            --output assets/github-streak.svg
+
+      - name: Commit changes
+        run: |
+          # Commit only when card content actually changes.
+          if git diff --quiet assets/github-streak.svg; then
+            echo "No changes detected"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/github-streak.svg
+          git commit -m "chore: update DailyStreaks card"
+          git push
